@@ -9,25 +9,16 @@ let db;
 // Connect to the database
 connectToDb((err) => {
     if (!err) {
-        db = getDb(); //assign connected database to db variable
-
-        // Start the Server
-    app.listen(4000, () => {
+        app.listen(4000, () => {
         console.log('app is listening to port 4000')
-    })
-    }else {
-    console.log('Failed to connect to the database:', err)
+        })
+        db = getDb();
     }
 })
 
 // routes
 app.get('/books', (req, res) => {
     let books = []
-
-    if (!db) {
-        return res.status(500).json({error:'Database connection not established'})
-    }
-
     // Querry the collection
     db.collection('books')
     .find()
