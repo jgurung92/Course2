@@ -1,0 +1,23 @@
+[
+    { "_id": 1, "title": "Book One", "categories": ["Fiction", "Adventure"], "author": "Author One", "year": 2021 },
+    { "_id": 2, "title": "Book Two", "categories": ["Non-Fiction", "Biography"], "author": "Author Two", "year": 2019 },
+    { "_id": 3, "title": "Book Three", "categories": ["Fiction", "Romance", "Drama"], "author": "Author Three", "year": 2020 },
+    { "_id": 4, "title": "Book Four", "categories": ["Science", "Non-Fiction"], "author": "Author Four", "year": 2018 },
+    { "_id": 5, "title": "Book Five", "categories": ["Adventure", "Fiction"], "author": "Author Five", "year": 2022 },
+    { "_id": 6, "title": "Book Six", "categories": ["Drama", "Biography"], "author": "Author Six", "year": 2021 },
+    {"_id": 7, "title": "Book seven", "categories": ["Non-Fiction", "History"], "author": "Author seven", "year": 2010},
+    {"_id": 8, "title": "Book eight", "categories": ["Fiction", "Adventure"], "author": "Author eight", "year": 2014},
+    {"_id": 9, "title": "Book nine", "categories": ["Non-Fiction", "History"], "author": "Author nine", "year": 2017},
+    {"_id": 10, "title": "Book ten", "categories": ["Fiction", "Adventure"], "author": "Author ten", "year": 2008},
+    {"_id": 11, "title": "Book eleven", "categories": ["Non-Fiction", "History"], "author": "Author eleven", "year": 2012},
+    {"_id": 12, "title": "Book twelve", "categories": ["Fiction", "Adventure"], "author": "Author twelve", "year": 2015},
+    {"_id": 13, "title": "Book thirteen", "categories": ["Non-Fiction", "History"], "author": "Author thirteen", "year": 2008},
+    {"_id": 14, "title": "Book fourteen", "categories": ["Fiction", "Adventure"], "author": "Author fourteen", "year": 2014},
+    {"_id": 15, "title": "Book fifteen", "categories": ["Non-Fiction", "History"], "author": "Author fifteen", "year": 2016},
+    {"_id": 16, "title": "Book sixteen", "categories": ["Non-Fiction", "History"], "author": "Author sixteen", "year": 2021},
+    {"_id": 17, "title": "Book seventeen", "categories": ["Fiction", "Adventure"], "author": "Author seventeen", "year": 2014},
+    {"_id": 18, "title": "Book eighteen", "categories": ["Non-Fiction", "History"], "author": "Author eighteen", "year": 2005},
+    {"_id": 19, "title": "Book nineteen", "categories": ["Fiction", "Adventure"], "author": "Author  nineteen", "year": 2016},
+    {"_id": 20, "title": "Book twenty", "categories": ["Non-Fiction", "History"], "author": "Author twenty", "year": 2019},
+    {"_id": 21, "title": "Book twentyone", "categories": ["Fiction", "Adventure"], "author": "Author twentyone", "year": 2018}
+]
