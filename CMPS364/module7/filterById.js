@@ -1,5 +1,5 @@
 const express = require('express')
-const { ObjectId } = require('mongodb');
+// const { ObjectId } = require('mongodb');
 const {connectToDb, getDb } = require ('./db')
 
 const app = express()

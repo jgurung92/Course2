@@ -18,13 +18,14 @@ connectToDb((err) => {
     }
 })
 
+// GET REQUEST
 // routes to get all the data
 app.get('/books', (req, res) => {
     let books = []
     // Querry the collection
     db.collection('books')
     .find()
-    .sort({auther: 1})
+    .sort({id: 1})
     .forEach((book) => books.push(book))
     .then(() => {
         res.status(200).json(books)
@@ -41,7 +42,7 @@ app.get('/books/:id', (req, res) => {
     const bookId = parseInt(req.params.id); // Parse the id as an integer
 
     db.collection('books')
-        .findOne({ _id: bookId }) // Query using integer _id
+        .findOne({ id: bookId }) // Query using integer _id
         .then((book) => {
             if (book) {
                 res.status(200).json(book);
@@ -84,12 +85,13 @@ app.get('/books/title/:title', (req, res) => {
         });
 });
 
+// POST REQUEST
 // POST route to insert a new book
 app.post('/books', (req, res) => {
     const newBook = req.body;  // Get the new book data from the request body
 
     // Validate the incoming data (you can expand this as needed)
-    if (!newBook._id || !newBook.title || !newBook.categories || !newBook.author || !newBook.year) {
+    if (!newBook.id || !newBook.title || !newBook.categories || !newBook.author || !newBook.year) {
         return res.status(400).json({ error: 'ID, Title, categories, author, and year are required' });
     }
 
@@ -105,7 +107,7 @@ app.post('/books', (req, res) => {
         });
 });
 
-
+// PUT REQUEST
 // PUT route to update an existing book
 app.put('/books/:id', (req, res) => {
     const bookId = req.params.id;  // Get the book ID from the URL parameter
@@ -118,7 +120,7 @@ app.put('/books/:id', (req, res) => {
 
     // Update the book in the database
     db.collection('books')
-        .updateOne({ _id: parseInt(bookId) }, { $set: updatedBook }) // Convert string ID to an integer
+        .updateOne({ id: parseInt(bookId) }, { $set: updatedBook }) // Convert string ID to an integer
         .then((result) => {
             if (result.matchedCount === 0) {
                 return res.status(404).json({ error: 'Book not found' });
@@ -132,9 +134,57 @@ app.put('/books/:id', (req, res) => {
 });
 
 
+// DELETE/PURGE REQUEST
+// Route to delete a book by title
+app.delete('/books/title/:title', (req, res) => {
+    const title = req.params.title;  // Get the title from the URL parameter
 
+    // Delete the book from the database
+    db.collection('books')
+        .deleteOne({ title: title }) // Delete a book that matches the title
+        .then((result) => {
+            if (result.deletedCount === 0) {
+                return res.status(404).json({ error: 'Book not found' });
+            }
+            res.status(200).json({ message: 'Book deleted successfully' });
+        })
+        .catch((err) => {
+            console.error('Error deleting book:', err);
+            res.status(500).json({ error: 'Could not delete the book' });
+        });
+});
 
+// Route to delete a book by author
+app.delete('/books/author/:author', (req, res) => {
+    const author = req.params.author;  // Get the author from the URL parameter
 
+    // Delete the book(s) from the database
+    db.collection('books')
+        .deleteMany({ author: author }) // Delete all books that match the author
+        .then((result) => {
+            if (result.deletedCount === 0) {
+                return res.status(404).json({ error: 'No books found for this author' });
+            }
+            res.status(200).json({ message: 'Books deleted successfully' });
+        })
+        .catch((err) => {
+            console.error('Error deleting books:', err);
+            res.status(500).json({ error: 'Could not delete books' });
+        });
+});
+
+// PURGE route to delete all books
+app.delete('/books/purge', (req, res) => {
+    db.collection('books')
+        .deleteMany({})
+        .then((result) => {
+            res.status(200).json({ message: 'All books have been deleted', deletedCount: result.deletedCount });
+        })
+        .catch((err) => {
+            console.error('Error purging books:', err);
+            res.status(500).json({ error: 'Could not purge the collection' });
+        });
+    });
 
 
 
