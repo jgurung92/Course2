@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= post.title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1><%= post.title %></h1>
+    <div class="post">
+        <p class="post-date"><%= post.createdAt.toDateString() %></p>
+        <p class="pos-content"><%= post.content %></p>
+        <a href="/" class="back-home">Back to Home</a>
+    </div>
+</body>
+</html>

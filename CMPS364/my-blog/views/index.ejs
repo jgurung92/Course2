@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blog</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Welcome to My Blog</h1>
+    <a href="/posts/new">Create a new Post</a>
+    <ul>
+
+    <ul>
+        <% posts.forEach(post => { %>
+            <li>
+                <a href="/posts/<%= post._id %>"><%= post.title %></a>
+                <p><%= post.createdAt.toDateString() %></p>
+            </li>
+        <% }); %>
+    </ul> 
+</body>
+</html>
+
