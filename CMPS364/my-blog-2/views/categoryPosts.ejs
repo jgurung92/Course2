@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= category.categoryName %> Posts</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Posts in <%= category.categoryName %></h1>
+    <p><%= category.description %></p>
+    <ul>
+        <% category.posts.forEach(post => { %>
+            <li>
+                <a href="/posts/<%= post._id %>"><%= post.title %></a>
+                <p><%= post.createdAt.toDateString() %></p>
+            </li>
+        <% }); %>
+    </ul>
+    <a href="/categories">Back to Categories</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Categories</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>All Categories</h1>
+
+    <div class="section">
+        <!-- Add Category Button -->
+        <a href="/categories/add"><button class="button">Add Category</button></a>
+        <div class="post-box">
+            <% categories.forEach(category => { %>
+                <div class="post-list">
+                    <a href="/categories/<%= category._id %>"><%= category.categoryName %></a>
+                    <p><%= category.description %></p>
+                </div>
+            <% }); %>
+        </div>
+        <a href="/" >Back to Home</a>
+    </div>
+</body>
+</html>

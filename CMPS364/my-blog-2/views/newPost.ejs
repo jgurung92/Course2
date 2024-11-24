@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create a New Post</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1 class="header">Create a New Psot</h1>
+    <form action="/posts" method = "POST" class="section">
+        <label for="title" class="post_label"> Title: </label>
+        <input type="text" id = "title" name = "title" required>
+
+        <label for="author" class="post_label">Author:</label>
+        <input type="text" id="author" name="author" required>
+
+        <label for="content" class="post_label"> Content: </label>
+        <textarea name="content" id="content" required></textarea>
+
+        <label for="tags" class="post_label">Tags (comma-separated):</label>
+        <input type="text" id="tags" name="tags">
+
+        <button type="submit" class="button"> Publish </button><br>
+        <a href="/" >Back to Home</a>
+    </form><br>
+    
+</body>
+</html>

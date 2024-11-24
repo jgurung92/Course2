@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Blog</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Welcome to My Blog</h1>
+
+    <!-- Navigation Links -->
+    <div class="navigation-buttons">
+        <a href="/posts/new">Create a new Post</a>
+        <a href="/categories">View All Categories</a>
+        <button id="toggle-search-button">Search</button>  
+    </div> <br>
+    
+    <!-- Search Form -->
+    <form action="/search" method="GET" class="search-form hidden">
+        <input type="text" name="q" placeholder="Search posts..." class="search-input" required/>
+        <button type="submit" class="button">Search</button>
+    </form>
+
+    <!-- Recommendation Post -->
+    <h2>Recommended Posts</h2>
+    <div class="post-box">
+        <% if (recommendedPosts && recommendedPosts.length > 0) { %>
+            <% recommendedPosts.forEach(post => { %>
+                <div class="post-list">
+                    <h3><a href="/posts/<%= post._id %>"><%= post.title %></a></h3>
+                    <p><%= post.content.slice(0, 100) %>...</p> <!-- Show a snippet of content -->
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No recommendations available at the moment.</p>
+        <% } %>
+    </div>
+
+
+    <!-- Bolg Post List -->
+    <h2>All Posts</h2>
+    <div class="post-box">
+        <% posts.forEach(post => { %>
+            <div class="post-list">
+                <a href="/posts/<%= post._id %>"><%= post.title %></a>
+                <p><%= post.createdAt.toDateString() %></p>
+            </div>
+        <% }); %>
+    </div>
+    
+    <!-- Include the JavaScript -->
+    <script src="/js/toggle.js"></script>
+</body>
+</html>
+
