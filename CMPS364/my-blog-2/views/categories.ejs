@@ -6,6 +6,21 @@
 </head>
 <body>
     <h1>All Categories</h1>
+    <div class="alert">
+        <!-- Success Message -->
+        <% if (message.success) { %>
+            <div class="alert-success">
+                <p><%= message.success %></p>
+            </div>
+        <% } %>
+        <!-- Error Message -->
+        <% if (message.error) { %>
+            <div class="alert-danger">
+                <p><%= message.error %></p>
+            </div>
+        <% } %>
+    </div>
+    
 
     <div class="section">
         <!-- Add Category Button -->

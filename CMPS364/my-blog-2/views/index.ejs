@@ -7,11 +7,27 @@
 <body>
     <h1>Welcome to My Blog</h1>
 
+    <!-- Changes Made -->
+    <!-- Display Success Message -->
+    <div class="alert">
+        <% if (message.success) { %>
+            <div class="alert-success">
+                <p><%= message.success %></p>
+            </div>
+        <% } %>
+        <!-- Display Error Message--> 
+        <% if (message.error) { %>
+            <div class="alert-danger">
+                <p><%= message.error %></p>
+            </div>
+        <% } %>
+    </div>
+
     <!-- Navigation Links -->
     <div class="navigation-buttons">
         <a href="/posts/new">Create a new Post</a>
         <a href="/categories">View All Categories</a>
-        <button id="toggle-search-button">Search</button>  
+        <button id="toggle-search-button">Search</button> 
     </div> <br>
     
     <!-- Search Form -->
@@ -27,14 +43,13 @@
             <% recommendedPosts.forEach(post => { %>
                 <div class="post-list">
                     <h3><a href="/posts/<%= post._id %>"><%= post.title %></a></h3>
-                    <p><%= post.content.slice(0, 100) %>...</p> <!-- Show a snippet of content -->
+                    <p><%= post.content.slice(0, 100) %>...</p> 
                 </div>
             <% }) %>
         <% } else { %>
             <p>No recommendations available at the moment.</p>
         <% } %>
     </div>
-
 
     <!-- Bolg Post List -->
     <h2>All Posts</h2>

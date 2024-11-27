@@ -5,16 +5,19 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <h1>Posts in <%= category.categoryName %></h1>
-    <p><%= category.description %></p>
-    <ul>
-        <% category.posts.forEach(post => { %>
-            <li>
-                <a href="/posts/<%= post._id %>"><%= post.title %></a>
-                <p><%= post.createdAt.toDateString() %></p>
-            </li>
-        <% }); %>
-    </ul>
-    <a href="/categories">Back to Categories</a>
+    <h1><%= category.categoryName %></h1>
+    <div class="section">
+        <!-- <p><%= category.description %></p> -->
+        <div class="post-box">
+            <!-- Changes Made -->
+            <% category.posts.forEach(post => { %>
+                <div class="post-list">
+                    <a href="/posts/<%= post._id %>"><%= post.title %></a>
+                    <p><%= post.createdAt.toDateString() %></p>
+                </div>
+            <% }); %>
+        </div>
+        <a href="/categories">Back to Categories</a>
+    </div>
 </body>
 </html>

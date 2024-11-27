@@ -3,8 +3,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9; 
-    color: #333;
+    background: #93b5bb; 
+    color: #333; 
     line-height: 1.6;
 }
 
@@ -12,7 +12,7 @@ body {
     padding: 1%;
     width: 90%;
     margin: 0 auto;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  */
 }
 
 h1 {
@@ -58,9 +58,7 @@ a:hover {
 
 .navigation-buttons a, button {
     flex: 1; 
-    /* background-color: #4CAF50;  */
     background-color: #566573;
-    ;
     color: white;
     border-radius: 5px; 
     border: none; 
@@ -103,7 +101,9 @@ a:hover {
     /* border: 1px solid red; */
     text-align: left;
     padding: 2.5%;
-    background: #fff;
+    /* background: lightcyan; */
+    /* background: #fff;   */
+    background: #93b5bb; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -135,7 +135,7 @@ a:hover {
 
 .post-list {
     /* border: 1px solid rgb(13, 0, 255);  */
-    background: #fff;
+    background: #fff; 
     margin: 10px; 
     padding: 2%;
     flex-direction: column;
@@ -179,7 +179,7 @@ form.post {
 }
 
 /* Input fields */
-input[type="text"], textarea {
+input[type="text"], textarea, select {
     width: 100%; 
     padding: 10px;
     margin-bottom: 20px; 
@@ -206,6 +206,81 @@ input[type="text"]:focus, textarea:focus {
     background-color: #1c2833;
     transition-delay:3ms;
 }
+
+/* CSS for metrics page */
+/* Table Styling */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+thead {
+    /* background-color: #4CAF50; */
+    background-color: #566573;
+    color: #fff; 
+}
+
+thead th {
+    padding: 12px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+tbody td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Hover Effects */
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+tbody td a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+tbody td a:hover {
+    text-decoration: underline;
+}
+
+/* CSS for Message Display */
+.alert {
+    width: 90%;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.alert-success {
+    color: #28a745;
+}
+
+.alert-danger {
+    color: #dc3545;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /* Responsive Design */
@@ -269,5 +344,35 @@ input[type="text"]:focus, textarea:focus {
     .post-content {
         font-size: 1.2rem; 
         padding: 12px; 
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        border: none;
+        padding: 8px 0;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #333;
     }
 }

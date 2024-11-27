@@ -29,3 +29,7 @@ socket.on("commentAdded", (comment) => {
         commentsDiv.appendChild(newComment); // Add the new comment to the comments section
     }
 });
+
+
+
+

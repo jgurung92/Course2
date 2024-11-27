@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <h1 class="header">Create a New Psot</h1>
+    <!-- New Post Form -->
+    <h1 class="header">Create a New Post</h1>
     <form action="/posts" method = "POST" class="section">
         <label for="title" class="post_label"> Title: </label>
         <input type="text" id = "title" name = "title" required>
@@ -16,12 +17,18 @@
         <label for="content" class="post_label"> Content: </label>
         <textarea name="content" id="content" required></textarea>
 
+        <label for="category" class="post_label">Category:</label>
+        <select name="category" id="category" required>
+            <% categories.forEach(category => { %>
+                <option value="<%= category._id %>"><%= category.categoryName %></option>
+            <% }); %>
+        </select>
+
         <label for="tags" class="post_label">Tags (comma-separated):</label>
         <input type="text" id="tags" name="tags">
 
         <button type="submit" class="button"> Publish </button><br>
         <a href="/" >Back to Home</a>
     </form><br>
-    
 </body>
 </html>

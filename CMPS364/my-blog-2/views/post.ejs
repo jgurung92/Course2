@@ -3,6 +3,7 @@
 <head>
     <title><%= post.title %></title>
     <link rel="stylesheet" href="/css/styles.css">
+    
 </head>
 <body>
     <h1><%= post.title %></h1>
@@ -11,18 +12,16 @@
         <p class="pos-content"><%= post.content %></p><br><br>
         
         <!-- Comments Section --> 
-        <div>
-            <h1>Comments</h1>
-            <div id="comments">
-                <!-- Existing comments rendered from the server -->
-                <% comments.forEach(comment => { %>
-                    <div class="post">
-                        <strong><%= comment.author %></strong>: <%= comment.content %>
-                    </div>
-                <% }) %>
-            </div>
+        <h1>Comments</h1>
+        <div id="comments">
+            <!-- Existing comments rendered from the server -->
+            <% comments.forEach(comment => { %>
+                <div class="post">
+                    <strong><%= comment.author %></strong>: <%= comment.content %>
+                </div>
+            <% }) %>
         </div>
-
+        
         <form action="/posts/<%= post._id %>/comments" method="POST" class="post_label">
             <label for="author">Name:</label>
             <input type="text" id="author" name="author" required>
@@ -30,10 +29,9 @@
             <textarea id="content" name="content" required></textarea>
             <button type="submit" class="button">Add Comment</button>
         </form><br> 
-
         <a href="/" class="back-home">Back to Home</a>
     </div>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="../public/js/socketIO.js"></script><br>
+    <script src="/js/socketIO.js"></script><br>
+    <script src="/socket.io/socket.io.js"></script>     
 </body>
 </html>
