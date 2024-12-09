@@ -1,0 +1,157 @@
+
+
+body {
+  background-color: #cecaca;
+}
+.container {
+  /* border: 1px solid red;  */
+  width: 90%;
+  margin: 2% auto;
+  display: flex; 
+}
+
+.section {
+  /* border: 1px solid red;   */
+  width: 90%;
+  margin: 2% auto;
+}
+
+h1 {
+  padding: 2% 0;
+  text-align: center;
+  margin-top: 20px;
+  /* color: #4CAF50; */
+  color: #212f3d;
+}
+
+.post-box {
+  /* border: 1px solid red;     */
+  list-style: none;
+  padding: 0;
+  width: 90%;
+  margin: 2% auto;
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+}
+
+.post-list {
+  /* border: 1px solid rgb(13, 0, 255);    */
+  background:#f0f0f0;
+  /* background:honeydew; */
+  margin: 10px; 
+  padding: o auto;
+  padding-left: 2%;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: left; 
+  width: 30%; 
+  height: 250px; 
+  box-sizing: border-box; 
+}
+
+.result-box {
+  width: 40%;
+}
+
+.post-list:hover {
+  cursor: pointer;
+  background-color:aliceblue;
+}
+
+.post-list a {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+} 
+
+.post-list p {
+  font-size: 0.9rem;
+  /* color: red;  */
+}
+
+
+
+
+
+
+
+
+
+
+.search-form select,
+.search-form input  {
+  /* border: 1px solid red; */
+  margin-bottom: 15px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin: 0; 
+}
+
+/* Input fields */
+input, select  {
+  padding: .7%;
+  border-radius: 5px; 
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;  
+  border-style: none;
+}
+
+
+/* Button */
+.button {
+  width: 20%;
+  margin-right: 0;
+  float: left;
+  padding: .7%;
+  border-radius: 5px; 
+  border-style: none ;
+}
+
+.button:hover {
+  background-color: aliceblue;
+  transition-delay:3ms;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Query for small devices */
+@media (max-width: 768px) {
+  .post-box {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 2 per row for medium screens */
+  }
+}
+
+/* Media Query for very small devices (phones) */
+@media (max-width: 480px) {
+  .post-box {
+    grid-template-columns: 1fr; /* 1 per row for small screens */
+  }
+
+  .post-list {
+    padding: 10px;
+  }
+}
