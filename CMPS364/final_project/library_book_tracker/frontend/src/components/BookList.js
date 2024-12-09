@@ -33,16 +33,16 @@ const BookList = () => {
 
     return (
         <div className="post-box">
-    {books.map((book) => (
-    <div key={book._id} className="post-list">
-        <h3>{book.title}</h3>
-        <p>Author: {book.author}</p>
-        <p>Genre: {book.genre}</p>
-        <p>Published: {book.publicationYear}</p>
-        <p>Status:{' '}{book.isRented ? `Rented by ${book.rentedBy}` : 'Available'}</p> 
-    </div>
-    ))}
-</div>
+            {books.map((book) => (
+                <div key={book._id} className="post-list">
+                    <h3>{book.title}</h3>
+                    <p>Author: {book.author}</p>
+                    <p>Genre: {book.genre}</p>
+                    <p>Published: {book.publicationYear}</p>
+                    <p>Status:{' '}{book.isRented ? `Rented by ${book.rentedBy}` : 'Available'}</p> 
+                </div>
+            ))}
+        </div>
     );
 };
 

@@ -88,12 +88,7 @@ app.get('/books/genre/:genre', async (req, res) => {
     }
 });
 
-
-
-
-
 // Route to Get all books with rental status
-// Get all books route with availability status
 app.get('/books', async (req, res) => {
     try {
         const books = await Book.find();
@@ -106,9 +101,7 @@ app.get('/books', async (req, res) => {
     }
 });
 
-
 // Route to Get book by ID with rental status
-// Get book by ID route with availability status
 app.get('/books/:id', async (req, res) => {
     try {
         const book = await Book.findById(req.params.id);
@@ -181,13 +174,6 @@ app.get('/books/published/after/:year', async (req, res) => {
     }
 });
 
-
-
-
-
-
-
-
 // POST REQUEST
 // POST route to insert a new book
 app.post('/books', async (req, res) => {
@@ -254,12 +240,6 @@ app.put('/books/:id', async (req, res) => {
     }
 });
 
-
-
-
-
-
-
 // Route to rent a book
 app.put('/books/rent/:id', async (req, res) => {
     const bookId = req.params.id;
@@ -293,8 +273,6 @@ app.put('/books/rent/:id', async (req, res) => {
     }
 });
 
-
-
 // Route to return a book
 app.put('/books/return/:id', async (req, res) => {
     const bookId = req.params.id;
@@ -327,14 +305,9 @@ app.put('/books/return/:id', async (req, res) => {
     }
 });
 
-
-
-
-
 // DELETE/PURGE REQUEST
 // Route to delete a book by title (using path parameters)
 app.delete('/books/title/:title', async (req, res) => {
-    // Decode the title to handle spaces properly
     const title = decodeURIComponent(req.params.title); // This decodes any URL-encoded characters (e.g., '%20' for spaces)
 
     try {
@@ -358,7 +331,6 @@ app.delete('/books/title/:title', async (req, res) => {
 
 // Route to delete a book by author (using path parameters)
 app.delete('/books/author/:author', async (req, res) => {
-    // Decode the title to handle spaces properly
     const author = decodeURIComponent(req.params.author); // This decodes any URL-encoded characters (e.g., '%20' for spaces)
     try {
         const deletedBook = await Book.findOneAndDelete({author: author });
@@ -378,20 +350,6 @@ app.delete('/books/author/:author', async (req, res) => {
         });
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Start the server
 const PORT = 5000;

@@ -1,17 +1,13 @@
 
-
+* {
+  font-family: Helvetica, sans-serif
+}
 body {
   background-color: #cecaca;
 }
-.container {
-  /* border: 1px solid red;  */
-  width: 90%;
-  margin: 2% auto;
-  display: flex; 
-}
 
 .section {
-  /* border: 1px solid red;   */
+  /* border: 1px solid red;     */
   width: 90%;
   margin: 2% auto;
 }
@@ -24,8 +20,69 @@ h1 {
   color: #212f3d;
 }
 
+/* Navigation Buttons */
+.navigation-buttons {
+  width: 90%;
+  /* border: 1px solid red; */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 10px; 
+  margin: 0 auto;
+
+}
+
+.navigation-buttons a, button {
+  flex: 1;   
+  background-color:#589ee9;
+  color: black;
+  border-radius: 5px; 
+  border: none; 
+  cursor: pointer; 
+  font-size: 16px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease; 
+  height: 40px;   
+  display: flex; 
+  justify-content: center;  
+  align-items: center;  
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Add hover effect for links and buttons */
+.navigation-buttons a:hover,
+.navigation-buttons button:hover {
+  background-color:rgb(126, 128, 130);
+}
+
+
+/* CSS FOR TOGGLE FORM */
+.toggle-button { 
+  background-color:#589ee9;
+  color: black;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.toggle-button:hover {
+  background-color: rgb(126, 128, 130);
+  /* background-color:#589ee9; */
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+  margin-left: 5%;
+}
+
 .post-box {
-  /* border: 1px solid red;     */
+  /* border: 1px solid red;      */
   list-style: none;
   padding: 0;
   width: 90%;
@@ -52,6 +109,14 @@ h1 {
   box-sizing: border-box; 
 }
 
+.box {
+  /* border: 1px solid red; */
+  display: flex;
+  width: 60%;
+  margin: 2% auto;
+  
+}
+
 .result-box {
   width: 40%;
 }
@@ -66,40 +131,43 @@ h1 {
   margin-bottom: 5px;
 } 
 
-.post-list p {
+.post-list p  {
   font-size: 0.9rem;
   /* color: red;  */
 }
 
-
-
-
-
-
-
-
+.search-form{
+  /* border: 1px solid red; */
+  margin-left: 5%;
+}
 
 
 .search-form select,
 .search-form input  {
-  /* border: 1px solid red; */
-  margin-bottom: 15px;
+  /* border: 1px solid red;  */
   width: 40%;
   display: flex;
   justify-content: center;
-  gap: 10px;
   margin-bottom: 20px;
-  margin: 0; 
-}
+  width: 90%;
+  font-size: 16px;
+} 
 
 /* Input fields */
-input, select  {
+input, select {
   padding: .7%;
   border-radius: 5px; 
-  font-size: 16px;
-  font-family: Arial, sans-serif;
   box-sizing: border-box;  
   border-style: none;
+
+}
+input[type="text"] {
+  font-size: 1.2rem;
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 
@@ -120,38 +188,104 @@ input, select  {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Media Query for small devices */
+/* Mobile Devices (max-width: 768px) */
 @media (max-width: 768px) {
-  .post-box {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 2 per row for medium screens */
+  .section {
+      width: 100%;
+      margin: 5% auto;
   }
-}
 
-/* Media Query for very small devices (phones) */
-@media (max-width: 480px) {
-  .post-box {
-    grid-template-columns: 1fr; /* 1 per row for small screens */
+  h1 {
+      font-size: 1.5rem;
+      padding: 5% 0;
+  }
+
+  .navigation-buttons {
+      flex-direction: column; 
+      gap: 15px;
+  }
+
+  .navigation-buttons a,  
+  .navigation-buttons button {
+      width: 100%; 
+      font-size: 14px;
+      height: 50px; 
+      padding: 1%;
   }
 
   .post-list {
-    padding: 10px;
+      width: 100%; 
+      height: auto; 
+      padding: 10px; 
+  }
+
+  .box {
+      flex-direction: column;
+      width: 90%;
+  }
+
+  .result-box, 
+  .search-form select, 
+  .search-form input {
+      width: 100%; 
+  }
+  .button {
+      width: 100%; 
+      margin: 10px 0; 
   }
 }
+
+/* Tablet Devices (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .section {
+      width: 95%;
+  }
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  .post-list {
+      width: 45%; 
+      height: auto; 
+  }
+
+  .navigation-buttons {
+      gap: 20px; 
+  }
+  .box {
+      flex-direction: column;
+      width: 80%;
+  }
+}
+
+/* Large Screens (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .section {
+      width: 80%;
+  }
+
+  .post-list {
+      width: 30%; 
+      height: 250px; 
+  }
+
+  .button {
+      width: 20%; /* Maintain original button width */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
